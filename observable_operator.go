@@ -594,10 +594,10 @@ func (o *ObservableImpl) BufferWithTimeOrCount(timespan Duration, count int, opt
 }
 
 // Connect instructs a connectable Observable to begin emitting items to its subscribers.
-func (o *ObservableImpl) Connect() Disposable {
+func (o *ObservableImpl) Connect() (context.Context, Disposable) {
 	ctx, cancel := context.WithCancel(context.Background())
 	o.Observe(WithContext(ctx), connect())
-	return Disposable(cancel)
+	return ctx, Disposable(cancel)
 }
 
 // Contains determines whether an Observable emits a particular item or not.
