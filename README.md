@@ -16,7 +16,7 @@ An operator is a function that defines an Observable, how and when it should emi
 
 ## RxGo
 
-The RxGo implementation is based on the concept of [pipelines](https://blog.golang.org/pipelines). In a nutshell, a pipeline is a series of stages connected by channels, where each stage is a group of goroutines running the same function.
+The RxGo implementation is based on the concept of [pipelines](https://blog.golang.org/pipelines). A pipeline is a series of stages connected by channels, where each stage is a group of goroutines running the same function.
 
 ![](doc/rx.png)
 
@@ -438,6 +438,7 @@ How to use the [assert API](doc/assert.md) to write unit tests while using RxGo.
 * [Buffer](doc/buffer.md) — periodically gather items from an Observable into bundles and emit these bundles rather than emitting the items one at a time
 * [FlatMap](doc/flatmap.md) — transform the items emitted by an Observable into Observables, then flatten the emissions from those into a single Observable
 * [GroupBy](doc/groupby.md) — divide an Observable into a set of Observables that each emit a different group of items from the original Observable, organized by key
+* [GroupByDynamic](doc/groupbydynamic.md) — divide an Observable into a dynamic set of Observables that each emit GroupedObservables from the original Observable, organized by key
 * [Map](doc/map.md) — transform the items emitted by an Observable by applying a function to each item
 * [Marshal](doc/marshal.md) — transform the items emitted by an Observable by applying a marshalling function to each item
 * [Scan](doc/scan.md) — apply a function to each item emitted by an Observable, sequentially, and emit each successive value
@@ -449,6 +450,7 @@ How to use the [assert API](doc/assert.md) to write unit tests while using RxGo.
 * [Distinct](doc/distinct.md)/[DistinctUntilChanged](doc/distinctuntilchanged.md) — suppress duplicate items emitted by an Observable
 * [ElementAt](doc/elementat.md) — emit only item n emitted by an Observable
 * [Filter](doc/filter.md) — emit only those items from an Observable that pass a predicate test
+* [Find](doc/find.md) — emit the first item passing a predicate then complete
 * [First](doc/first.md)/[FirstOrDefault](doc/firstordefault.md) — emit only the first item or the first item that meets a condition, from an Observable
 * [IgnoreElements](doc/ignoreelements.md) — do not emit any items from an Observable but mirror its termination notification
 * [Last](doc/last.md)/[LastOrDefault](doc/lastordefault.md) — emit only the last item emitted by an Observable
@@ -502,4 +504,4 @@ How to use the [assert API](doc/assert.md) to write unit tests while using RxGo.
 
 ## Contributions
 
-All contributions are very welcome! Be sure you check out the [Contributions](https://github.com/ReactiveX/RxGo/wiki/Contributions) and [Roadmap](https://github.com/ReactiveX/RxGo/wiki/Roadmap) pages first.
+All contributions are very welcome! Be sure you check out the [contributing guidelines](CONTRIBUTING.md) first.
