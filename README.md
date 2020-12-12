@@ -268,7 +268,7 @@ Each operator has an `opts ...Option` parameter allowing to pass such options.
 The default observation strategy is lazy. It means the items emitted by an Observable are processed by an operator once we start observing it. We can change this behaviour this way:
 
 ```go
-observable := rxgo.FromChannel(ch).Map(transform, rxgo.WithObservation(rxgo.Eager))
+observable := rxgo.FromChannel(ch).Map(transform, rxgo.WithObservationStrategy(rxgo.Eager))
 ```
 
 In this case, the `Map` operator is triggered whenever an item is produced even without any Observer.
@@ -499,7 +499,8 @@ How to use the [assert API](doc/assert.md) to write unit tests while using RxGo.
 * [Sum](doc/sum.md) — calculate the sum of numbers emitted by an Observable and emit this sum
 
 ### Operators to Convert Observables
-* [Error](doc/error.md)/[Errors](doc/errors.md) — convert an observable into an eventual error or list of errors
+* [Error](doc/error.md) — return the first error thrown by an observable
+* [Errors](doc/errors.md) — return all the errors thrown by an observable
 * [ToMap](doc/tomap.md)/[ToMapWithValueSelector](doc/tomapwithvalueselector.md)/[ToSlice](doc/toslice.md) — convert an Observable into another object or data structure
 
 ## Contributions
